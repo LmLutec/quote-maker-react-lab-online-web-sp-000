@@ -4,7 +4,10 @@ export default (state = [{
 }], action) => {
   switch (action.type) {
     case 'ADD_QUOTE':
-      return { quote: state.content }
+      state = [...state, action.quote] 
+    return state 
+    case 'UPVOTE_QUOTE':
+    console.log(action)
   }
   return state;
 }

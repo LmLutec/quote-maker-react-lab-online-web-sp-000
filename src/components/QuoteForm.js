@@ -10,10 +10,10 @@ class QuoteForm extends Component {
     author: ''
   }
 
-  handleOnChange = event => {
+  // handleOnChange = event => {
    
-    console.log(event.target.value)
-  }
+  //   console.log(event.target.value)
+  // }
 
   handleQuote = event => {
     // return event.target.value
@@ -31,12 +31,12 @@ class QuoteForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.handleQuote
-    this.handleAuthor
-    console.log(this.state)
-    // Create quote object from state
-    // Pass quote object to action creator
-    // Update component state to return to default state
+    const quote = { ...this.state, id: uuid() }
+    this.props.addQuote(quote)
+    this.setState({
+      content: '',
+      author: ''
+    })
   }
 
   render() {
@@ -81,9 +81,7 @@ class QuoteForm extends Component {
   }
 }
 
-// function dispatch(action){
-//   state = 
-// }
+
 
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+export default connect(null,{addQuote})(QuoteForm);
