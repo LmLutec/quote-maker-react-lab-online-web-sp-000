@@ -13,7 +13,7 @@ const QuoteCard = (props) =>
       </div>
       <div className="float-right">
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button
+          <button onClick={props.upvote}
             type="button"
             className="btn btn-primary"
           >
@@ -32,9 +32,16 @@ const QuoteCard = (props) =>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div>Votes: {props.quote.votes}</div>
+        {/* <div>Votes: {Render Quote Votes}</div> */}
       </div>
     </div>
   </div>
+
+  // let getEvent = (event) => {
+    // console.log(event)
+    // console.log(props)
+    // console.log(`event: ${event}`)
+    // props.upvote(event.target.value)
+  // }
 
 export default QuoteCard;

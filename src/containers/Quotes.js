@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
+import { upvoteQuote } from '../actions/quotes'
 
 class Quotes extends Component {
 
@@ -16,7 +17,7 @@ class Quotes extends Component {
           <div className="row">
             <div className="col-md-4">
               {this.props.quotes.map((quote) => {
-                return <QuoteCard key={quote.id} quote = {quote}/>
+                return <QuoteCard key={quote.id} quote = {quote} upvote={upvoteQuote}/>
               })}
             </div>
           </div>
