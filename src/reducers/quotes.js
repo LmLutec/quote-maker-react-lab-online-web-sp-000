@@ -22,12 +22,13 @@ export default (state = [], action) => {
 
     case 'DOWNVOTE_QUOTE':
       state.map((i) => {
-        if (i.id == action.quoteId){
+        if (i.id == action.quoteId){    
           if (i.votes !== 0)
           i.votes = i.votes - 1
         } 
       })
-
+    
+    break;
 
   default: return state;
 }

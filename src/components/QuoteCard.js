@@ -13,7 +13,7 @@ const QuoteCard = (props) =>
       </div>
       <div className="float-right">
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button onClick={props.upvote}
+          <button onClick={() => props.upvote(props.quote)}
             type="button"
             className="btn btn-primary"
           >
@@ -37,11 +37,5 @@ const QuoteCard = (props) =>
     </div>
   </div>
 
-  // let getEvent = (event) => {
-    // console.log(event)
-    // console.log(props)
-    // console.log(`event: ${event}`)
-    // props.upvote(event.target.value)
-  // }
 
 export default QuoteCard;
