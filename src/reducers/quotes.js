@@ -23,26 +23,21 @@ export default (state = [], action) => {
         ...state.slice(quoteId + 1)
       ]
 
-    //   state.map((i) => {
-      
-    //     if (i.id === action.quoteId){
-    //       i.votes = i.votes + 1
-    //     } 
-    //   })
-    //   // console.log(i)
-      
-    // return state
-
     case 'DOWNVOTE_QUOTE':
-      state.map((i) => {
-        if (i.id == action.quoteId){    
-          if (i.votes !== 0)
-          i.votes = i.votes - 1
-        } 
+      let qId = state.findIndex((quote) => {
+        return action.quoteId === quote.id
       })
-    
-    break;
+      let dwnQuote = state[qId]
 
-  default: return state;
-}
+      if (dwnQuote.votes !== 0){
+
+      return [...state.slice(0, qId), 
+        Object.assign({}, dwnQuote, {votes: dwnQuote.votes -=1 }),
+        ...state.slice(qId - 1)
+      ]
+      }
+    
+
+    default: return state;
+  }
 }
