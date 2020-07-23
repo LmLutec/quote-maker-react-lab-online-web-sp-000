@@ -15,7 +15,7 @@ const QuoteCard = (props) =>
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
           <button
             type="button"
-            onClick={() => props.upvote(props.quote)}
+            onClick={() => props.upvote(props.quote.id)}
             className="btn btn-primary"
           >
             Upvote

@@ -34,4 +34,4 @@ const mapToProps = (state) => {
   }
 }
 //add arguments to connect as needed
-export default connect(mapToProps)(Quotes);
+export default connect(mapToProps,{upvoteQuote})(Quotes);
