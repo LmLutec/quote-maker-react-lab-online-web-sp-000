@@ -13,8 +13,9 @@ const QuoteCard = (props) =>
       </div>
       <div className="float-right">
         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button onClick={() => props.upvote(props.quote)}
+          <button
             type="button"
+            onClick={() => props.upvote(props.quote)}
             className="btn btn-primary"
           >
             Upvote

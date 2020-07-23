@@ -13,12 +13,25 @@ export default (state = [], action) => {
     return state 
 
     case 'UPVOTE_QUOTE':
-      state.map((i) => {
-        if (i.id == action.quoteId){
-          i.votes = i.votes + 1
-        } 
+      let quoteId = state.findIndex((quote) => {
+        return action.quoteId === quote.id
       })
-    return state
+      let quote = state[quoteId]
+    console.log(quote)
+      return [...state.slice(0, quoteId), 
+        Object.assign({}, quote, {votes: quote.votes +=1 }),
+        ...state.slice(quoteId + 1)
+      ]
+
+    //   state.map((i) => {
+      
+    //     if (i.id === action.quoteId){
+    //       i.votes = i.votes + 1
+    //     } 
+    //   })
+    //   // console.log(i)
+      
+    // return state
 
     case 'DOWNVOTE_QUOTE':
       state.map((i) => {
